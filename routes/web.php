@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', 'PagesController@home');
 
 /*
 |--------------------------------------------------------------------------
@@ -41,14 +40,14 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 | Registration & Activation
 |--------------------------------------------------------------------------
 */
-Route::get('register', 'Auth\RegisterController@showRegistrationForm');
-Route::post('register', 'Auth\RegisterController@register');
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm');
+// Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('activate/token/{token}', 'Auth\ActivateController@activate');
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('activate', 'Auth\ActivateController@showActivate');
-    Route::get('activate/send-token', 'Auth\ActivateController@sendToken');
-});
+// Route::get('activate/token/{token}', 'Auth\ActivateController@activate');
+// Route::group(['middleware' => ['auth']], function () {
+//     Route::get('activate', 'Auth\ActivateController@showActivate');
+//     Route::get('activate/send-token', 'Auth\ActivateController@sendToken');
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => ['auth', 'active']], function () {
+    Route::get('/', 'PagesController@dashboard');
 
     /*
     |--------------------------------------------------------------------------
@@ -128,3 +128,27 @@ Route::group(['middleware' => ['auth', 'active']], function () {
         Route::get('roles/search', 'RoleController@index');
     });
 });
+
+/*
+|--------------------------------------------------------------------------
+| Demographic Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('demographics', 'DemographicsController', ['except' => ['show']]);
+Route::post('demographics/search', [
+    'as' => 'demographics.search',
+    'uses' => 'DemographicsController@search'
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Donation Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('donations', 'DonationsController', ['except' => ['show']]);
+Route::post('donations/search', [
+    'as' => 'donations.search',
+    'uses' => 'DonationsController@search'
+]);

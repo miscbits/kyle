@@ -57,3 +57,46 @@ $factory->define(App\Models\Team::class, function (Faker\Generator $faker) {
         'name' => $faker->name
     ];
 });
+/*
+|--------------------------------------------------------------------------
+| Demographic Factory
+|--------------------------------------------------------------------------
+*/
+
+$factory->define(App\Models\Demographic::class, function (Faker\Generator $faker) {
+    return [
+
+        'id' => '1',
+		'first_name' => 'laravel',
+		'middle_name' => 'laravel',
+		'last_name' => 'laravel',
+		'email' => 'laravel',
+		'phone' => 'laravel',
+		'address' => 'laravel',
+		'twitter' => 'laravel',
+		'ward' => '1',
+		'group' => 'laravel',
+		'student' => '1',
+		'notes' => 'laravel',
+
+
+    ];
+});
+
+/*
+|--------------------------------------------------------------------------
+| Donation Factory
+|--------------------------------------------------------------------------
+*/
+
+$factory->define(App\Models\Donation::class, function (Faker\Generator $faker) {
+    return [
+
+        'id' => '1',
+		'amount' => '1.1',
+		'contribution_timestamp' => '2017-02-07',
+		'demographic_id' => '1',
+
+
+    ];
+});
