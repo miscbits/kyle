@@ -18,7 +18,8 @@ class CreateDonationsTable extends Migration
 			$table->double('amount');
 			$table->date('contribution_timestamp');
 			$table->integer('demographic_id')->unsigned();
-			$table->integer('demographic');
+
+            $table->foreign('demographic_id')->references('id')->on('demographics')->onDelete('cascade');
 
             $table->timestamps();
         });

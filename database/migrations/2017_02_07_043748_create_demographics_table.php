@@ -15,18 +15,18 @@ class CreateDemographicsTable extends Migration
     {
         Schema::create('demographics', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('first_name');
-			$table->string('middle_name');
-			$table->string('last_name');
-			$table->string('email');
-			$table->string('phone');
-			$table->string('address');
-			$table->string('twitter');
-			$table->integer('ward');
-			$table->string('group');
-			$table->boolean('student');
-			$table->string('notes');
-			$table->integer('donations');
+			$table->string('first_name')->nullable();
+			$table->string('middle_name')->nullable();
+			$table->string('last_name')->nullable();
+			$table->string('email')->nullable();
+			$table->string('phone')->nullable();
+			$table->string('address')->nullable();
+			$table->string('twitter')->nullable();
+			$table->integer('ward')->nullable();
+			$table->string('group')->nullable();
+			$table->boolean('student')->nullable();
+			$table->string('notes')->nullable();
+			$table->integer('donations')->nullable();
 
             $table->timestamps();
         });
