@@ -16,5 +16,11 @@
         <li @if(Request::is('admin/roles', 'admin/roles/*')) class="active" @endif>
             <a href="{!! url('admin/roles') !!}"><span class="fa fa-lock"></span> Roles</a>
         </li>
+        <li @if(Request::is('demographics', 'demographics/*')) class="active" @endif>
+            <a href="{!! url('demographics') !!}"><span class="fa fa-address-book"></span> Demographics</a>
+        </li>
+        <li @if(Request::is('donations', 'donations/*')) class="active" @endif>
+            <a href="{!! url('donations') !!}"><span class="fa fa-thermometer-three-quarters"></span> Donations</a>
+        </li>
     @endif
 </ul>
