@@ -17,7 +17,7 @@
 
             {!! Form::open(['route' => 'donations.store']) !!}
 
-            @form_maker_table("donations")
+            {!! php echo FormMaker::setConnection('donation')->fromTable($donation) !!}
 
             {!! Form::submit('Save', ['class' => 'btn btn-primary pull-right']) !!}
 

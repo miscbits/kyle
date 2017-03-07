@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Donation extends Model
 {
+    protected $connection = "donation";
+
     public $table = "donations";
 
     public $primaryKey = "id";
@@ -23,10 +25,4 @@ class Donation extends Model
     public static $rules = [
         // create rules
     ];
-
-    
-	public function demographics() {
-		return $this->hasMany(App\Models\Demographic::class);
-	}
-
 }

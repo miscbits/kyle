@@ -19,7 +19,7 @@
 
             {!! Form::model($donation, ['route' => ['donations.update', $donation->id], 'method' => 'patch']) !!}
 
-            @form_maker_object($donation, FormMaker::getTableColumns('donations'))
+            {!! FormMaker::setConnection('donation')->fromObject($donation) !!}
 
             {!! Form::submit('Update', ['class' => 'btn btn-primary pull-right']) !!}
 
