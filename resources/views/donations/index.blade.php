@@ -21,14 +21,58 @@
             @else
                 <table class="table table-striped">
                     <thead>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address1</th>
+                        <th>Address2</th>
+                        <th>City</th>
+                        <th>Zip</th>
+                        <th>Amount</th>
+                        <th>Twitter</th>
+                        <th>Term</th>
+                        <th>Created_At</th>
                         <th class="text-right" width="200px">Action</th>
                     </thead>
                     <tbody>
                         @foreach($donations as $donation)
                             <tr>
                                 <td>
-                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->name }}</a>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->first_name }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->last_name }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->email }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->phone }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->address1 }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->address2 }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->city }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->zip }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->amount/100 }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->twitter }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->terms }}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('donations.edit', [$donation->id]) !!}">{{ $donation->created_at }}</a>
                                 </td>
                                 <td class="text-right">
                                     <form method="post" action="{!! route('donations.destroy', [$donation->id]) !!}">
@@ -49,6 +93,7 @@
     <div class="row">
         <div class="col-md-12 text-center">
             {!! $donations; !!}
+            {!! $donations->first() !!}
         </div>
     </div>
 
